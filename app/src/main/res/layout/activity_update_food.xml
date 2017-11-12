@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".AddFoodActivity"
+    android:orientation="vertical"
+    >
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID"
+        android:id="@+id/id"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="¿Qué alimento desea registrar?"
+        android:id="@+id/food"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="¿Cuántas calorías posee?"
+        android:id="@+id/calories"
+        />
+
+    <DatePicker
+        android:id="@+id/fooddate"
+        android:layout_width="284dp"
+        android:layout_height="280dp"
+        android:calendarViewShown="false"
+
+
+        android:timePickerMode="spinner"></DatePicker>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addFood"
+        android:text="modificar" />
+
+
+</LinearLayout>
