@@ -36,6 +36,19 @@ public class FoodModel {
 
     }
 
+    public void update(int Id, String food, double calories, String foodate)
+    {
+        String selection =FoodContract._ID + "="+Id;
+        ContentValues args = new ContentValues();
+        args.put(FoodContract.COLUMN_NAME_FOOD, food);
+        args.put(FoodContract.COLUMN_NAME_CALORIES, calories);
+        args.put(FoodContract.COLUMN_NAME_FOODDATE, foodate);
+        db.update(FoodContract.TABLE_NAME, args, selection, null);
+
+
+
+    }
+
     //Listar sin filtro
     public Cursor listAll(){
 
@@ -97,6 +110,42 @@ public class FoodModel {
 
         return c;
     }
+
+
+    //Listar con filtro
+    public Cursor listOne(String filtro){
+
+        db = foodDbHelper.getReadableDatabase();
+
+        //Especificamos los campos (columnas) que deseamos
+        String [] projection = { FoodContract._ID,
+                FoodContract.COLUMN_NAME_FOOD,
+                FoodContract.COLUMN_NAME_CALORIES,
+                FoodContract.COLUMN_NAME_FOODDATE
+        };
+
+
+        //Ahora definimos una condición de filtro
+        String selection =FoodContract._ID + "= ?";
+        String[] selectionArgs = { filtro };
+
+
+
+        //Realizamos la consulta
+        Cursor c = db.query(
+                FoodContract.TABLE_NAME,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+        );
+
+        return c;
+    }
+
+
 
     public void delete(long id){
         String selection = FoodContract._ID + " = ?";

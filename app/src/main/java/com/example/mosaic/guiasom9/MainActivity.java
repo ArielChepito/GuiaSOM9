@@ -102,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
     public void modifyFood(View view) {
-        /* Intent i = new Intent(this,DataGraphicsActivity.class);
-        startActivity(i);*/
+         Intent i = new Intent(this,updateFoodActivity.class);
+        startActivity(i);
     }
     public void viewChart(View view) {
         Intent i = new Intent(this,DataGraphicsActivity.class);
